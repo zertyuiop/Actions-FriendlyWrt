@@ -289,6 +289,6 @@ jobs:
     - name: Upload release
       uses: actions/upload-artifact@v4
       with:
-        name: release1
-        path: **
+        name: release
+        path: project/**
 
