@@ -286,4 +286,9 @@ jobs:
         asset_name: ${{ steps.config.outputs.img_filename }}.gz
         tag: ${{ needs.prepare_release.outputs.release_tag }}
         overwrite: true
+    - name: Upload release
+      uses: actions/upload-artifact@v4
+      with:
+        name: release
+        path: **
 
