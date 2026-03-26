@@ -16,8 +16,9 @@ EOL
 
 # {{ Add luci-app-diskman
 (cd friendlywrt && {
-    git clone https://github.com/this-username-has-been-taken/amneziawg-openwrt.git .
-    cp -rf amneziawg-go
+    git clone https://github.com/this-username-has-been-taken/amneziawg-openwrt.git
+    cp -rn amneziawg-openwrt/* package/
+    rm -rf package/amneziawg-go
 })
 cat >> configs/rockchip/01-nanopi <<EOL
 CONFIG_PACKAGE_kmod-crypto-lib-chacha20=y
