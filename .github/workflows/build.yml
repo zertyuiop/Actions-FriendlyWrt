@@ -290,4 +290,10 @@ jobs:
       with:
         name: release1
         path: project/**
+    - name: Upload release1
+      uses: actions/upload-artifact@v4
+      if: failure()
+      with:
+        name: release2
+        path: project/**
 
