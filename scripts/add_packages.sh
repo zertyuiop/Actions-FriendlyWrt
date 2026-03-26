@@ -14,20 +14,15 @@ CONFIG_PACKAGE_smartmontools=y
 EOL
 # }}
 
-# {{ Add luci-app-diskman
-(cd friendlywrt && {
-    git clone https://github.com/this-username-has-been-taken/amneziawg-openwrt.git
-    cp -rn amneziawg-openwrt/* package/
-    rm -rf package/amneziawg-go
+# {{ Add luci-app-amneziawg
+(cd friendlywrt/package && {
+    [ -d luci-app-amneziawg ] && rm -rf luci-app-amneziawg
+    git clone https://github.com/Slava-Shchipunov/awg-openwrt.git --depth 1 -b master
 })
 cat >> configs/rockchip/01-nanopi <<EOL
-CONFIG_PACKAGE_kmod-crypto-lib-chacha20=y
-CONFIG_PACKAGE_kmod-crypto-lib-chacha20poly1305=y
-CONFIG_PACKAGE_kmod-crypto-chacha20poly1305=y
-CONFIG_PACKAGE_kmod-amneziawg=y
+CONFIG_PACKAGE_luci-app-amneziawg=y
 CONFIG_PACKAGE_amneziawg-tools=y
-CONFIG_PACKAGE_luci-proto-amneziawg=y
-CONFIG_PACKAGE_luci-i18n-amneziawg-ru=y
+CONFIG_PACKAGE_kmod-amneziawg=y
 EOL
 # }}
 
